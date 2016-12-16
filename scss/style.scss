@@ -1,0 +1,222 @@
+@import "compass";
+
+$fontDidact: 'Didact Gothic', sans-serif;
+$fontComfort: 'Comfortaa', cursive;
+$fontBody: $fontDidact;
+$fontHead: $fontComfort;
+$quadrary: #4bffff;
+$darkQuad: shade($quadrary, 76%);
+$online: saturate(#4cae4c, 20);
+$text: lighten($quadrary, 20);
+////////////////////////////////////////////
+$bp1: 401px; //breakpoints (media width)
+$bp2: 449px;
+$imgSm: 65px;
+$imgLg: 95px;
+.bdr {
+	border: 2px dotted yellow;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+body {
+	@extend .center;
+	flex-direction: column;
+	background: $darkQuad;
+	font-family: $fontBody;
+	font-size: 1.7em;
+	//color: $quinary;
+}
+
+h1 {
+	padding: 20px 5px
+}
+
+h1,
+h2,
+h3 {
+	margin: 0;
+	color: $text;
+	font-family: $fontHead;
+}
+
+input {
+	line-height: 1.42857143;
+	@include border-radius(6px);
+	$shadow: inset 1px 1px 4px 0 rgba(black, .9);
+	-moz-box-shadow: $shadow;
+	-webkit-box-shadow: $shadow;
+	box-shadow: $shadow;
+	width: 100%;
+	min-width: 65px;
+	max-width: 300px;
+	font-family: $fontHead;
+	border: 1px solid $darkQuad;
+	background: tint($darkQuad, 10);
+	color: $text;
+	&::-webkit-input-placeholder {
+		/* Chrome/Opera/Safari */
+		color: $text;
+	}
+
+	&::-moz-placeholder {
+		/* Firefox 19+ */
+		color: $text;
+	}
+
+	&:-ms-input-placeholder {
+		/* IE 10+ */
+		color: $text;
+	}
+
+	&:-moz-placeholder {
+		/* Firefox 18- */
+		color: $text;
+	}
+	padding: 0 20px;
+}
+
+ul {
+	background: none;
+	padding: 0;
+	margin: 10px;
+	li {
+		@include box-shadow(2px 8px 14px 0 rgba(black, 0.6));
+		list-style-type: none;
+		list-style-position: inside;
+		margin: 0;
+		padding: 9px 13px;
+		$border: 2px solid rgba(darken($darkQuad, 12), .7);
+		border: $border;
+		border-top: none;
+		&:nth-child(odd) {
+			$background: lighten($darkQuad, 10);
+			background: $background;
+			&:hover {
+				background: shade($background, 25);
+			}
+		}
+		&:nth-child(even) {
+			$background: tint($darkQuad, 10);
+			background: $background;
+			&:hover {
+				background: shade($background, 15);
+			}
+		}
+		&:nth-child(1) {
+			@include border-top-left-radius(12px);
+			@include border-top-right-radius(12px);
+			border-top: $border;
+		}
+		&:last-child {
+			@include border-bottom-left-radius(12px);
+			@include border-bottom-right-radius(12px);
+			//border-top: $border;
+		}
+		&:active {
+			transform: translateY(4px);
+			@include box-shadow(2px 0px 14px 0 rgba(black, 0.6));
+		}
+	}
+}
+
+img {
+	width: $imgSm;
+	height: $imgSm;
+	@media(min-width: $bp2) {
+		width: $imgLg;
+		height: $imgLg;
+	}
+	z-index: 2;
+	@include box-shadow(2px 5px 10px 0 rgba(black, 0.6));
+	@include border-radius(50%, 50%);
+	padding: 4px;
+	margin: 0 8px 5px;
+	line-height: 1.42857143;
+	background-color: #fff;
+	border: 1px solid #ddd;
+}
+
+.tabs {
+	max-width: 600px;
+	background: $darkQuad;
+	.btn-bar {
+		margin: 0;
+		padding: 0;
+		max-width: 185px;
+	}
+	.btn {
+		&:active {
+			transform: translateY(4px);
+		}
+		margin: 0 2px;
+		@include border-radius(6px, 6px);
+	}
+	.all-btn {
+		margin-left: 4px;
+		color: white;
+		background: shade($quadrary, 10);
+		&:hover {
+			background: shade($quadrary, 40);
+		}
+		//border-color:shade($quadrary,80);
+		border-width: 0;
+	}
+}
+
+//.online,.offline,.rows{transition:all 2s ease-out;}
+.stream-cont {
+	margin-top: 20px;
+	width: 100%;
+	max-width: 600px;
+	a {
+		justify-content: flex-start;
+		font-family: $fontHead;
+		color: #FFF;
+		@media (max-width: $bp1) {
+			font-size: 19px;
+		}
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	li {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		.div-txt {
+			display: inline-flex;
+			width: calc(100% - 150px);
+			padding-left: 5px;
+			z-index: 2;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			@media (max-width: $bp1) {
+				font-size: .7em;
+			}
+		}
+	}
+	.offline {
+	}
+	.online {
+		//@extend .border-yl;
+		a {
+			color: $online !important;
+		}
+		.name {
+			color: $online;
+			font-weight: 700;
+			//@include single-text-shadow(1px, 1px, 1px, 0, $white75);//$hoff, $voff, $blur, $spread, $color
+		}
+		img {
+			background-color: $online;
+			border: 3px solid shade($online, 35);
+		}
+	}
+}
