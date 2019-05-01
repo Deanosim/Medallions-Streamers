@@ -1,5 +1,5 @@
 var chan = $('#channels'),
-    streamerArr = ["RunForTheMedals", ];
+    streamerArr = ["RunForTheMedals", "zell_kozama"];
 //console.log(streamerArr);
 streamerArr.map(function (streamer) {
     let _img = '//www.baristasbeans.com/portfolio/img/generic_user_image.jpg',
