@@ -1,5 +1,5 @@
 var chan = $('#channels'),
-    streamerArr = ["automateallthethings", "beohoff", "dotamajor", "drunk_blahhhhhh", "freecodecamp", "habathcx", "joshog", "l3loodreign", "mightymouseufc125", "moltenink", "nightblue3", "noobs2ninjas", "rampageishuman", "robotcaleb", "rp_dev", "saaitv", "storbeck", "terakilobyte", "thomasballinger", "trumpsc", "tsm_dyrus", "valkrin", "yogscast"];
+    streamerArr = ["RunForTheMedals", ];
 //console.log(streamerArr);
 streamerArr.map(function (streamer) {
     let _img = '//www.baristasbeans.com/portfolio/img/generic_user_image.jpg',
